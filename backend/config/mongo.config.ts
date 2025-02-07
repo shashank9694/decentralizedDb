@@ -3,21 +3,26 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const MONGO_URI = process.env.MONGO_URI || "mongodb://root:example@localhost:27017/decentralizedDb?authSource=admin";
+const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/decentralizedDb";
 
-const connectDB = async () => {
+const connectDB = async (retries = 5, delay = 5000) => {
   try {
     await mongoose.connect(MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      authSource: "admin",
-      user: "root",
-      pass: "example",
     } as mongoose.ConnectOptions);
+
     console.log("✅ MongoDB Connected Successfully");
   } catch (error) {
     console.error("❌ MongoDB Connection Error:", error);
-    process.exit(1);
+
+    if (retries > 0) {
+      console.log(`🔄 Retrying in ${delay / 1000} seconds... (${retries} attempts left)`);
+      setTimeout(() => connectDB(retries - 1, delay), delay);
+    } else {
+      console.error("❌ MongoDB Connection Failed after multiple retries.");
+      process.exit(1);
+    }
   }
 };
 
