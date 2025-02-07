@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
-import List from './components/List';
 import type { Book } from './types';
 import Homepage from './pages/homepage';
 import Header from './pages/header';
@@ -14,6 +13,7 @@ function App() {
   const [books, setBooks] = useState<Book[]>([]);
 
   useEffect(() => {
+    console.log("Fetching Books...",books);
     const getBooks = async () => {
       const response = await fetch('http://localhost:4000/books');
       const data = await response.json();
