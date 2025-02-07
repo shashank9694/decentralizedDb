@@ -15,11 +15,6 @@ jobs:
         image: mongo:latest
         ports:
           - 27017:27017
-        options: >-
-          --health-cmd "mongo --eval 'db.runCommand({ ping: 1 })'"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
 
     steps:
       - name: Checkout Repository
@@ -37,6 +32,9 @@ jobs:
           npm install -w frontend
           npm install -w backend
 
+      - name: Wait for MongoDB to initialize
+        run: sleep 30
+
       - name: Start Backend and Frontend
         run: |
           npm run backend & npm run frontend & sleep 30
@@ -50,6 +48,3 @@ jobs:
 
       - name: Success Message
         run: echo "✅ Backend and Frontend started successfully!"
-
-      - name: Keep Running for Debugging (Optional)
-        run: sleep 300
