@@ -99,12 +99,12 @@ function Header() {
     </>
   );
 
-function SignUpForm({ login }) {
+function SignUpForm( login: any ) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSignUp = async (e) => {
+  const handleSignUp = async (e : any) => {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:4000/api/auth/register", {
@@ -161,11 +161,11 @@ function SignUpForm({ login }) {
   );
 }
 
-function SignInForm({ login }) {
+function SignInForm(login: any) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSignIn = async (e) => {
+  const handleSignIn = async (e: any) => {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:4000/api/auth/login", {
@@ -232,7 +232,7 @@ function useAuth() {
     if (storedUser) setUser(JSON.parse(storedUser));
   }, []);
 
-  const login = (userData) => {
+  const login = (userData: any) => {
     localStorage.setItem("user", JSON.stringify(userData));
     setUser(userData);
   };

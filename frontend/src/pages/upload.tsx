@@ -56,8 +56,12 @@ export default function UploadPage() {
               type="file"
               className="hidden"
               multiple
-              webkitdirectory="true" // Enables folder selection in Chrome-based browsers
-              mozdirectory="true" // Enables folder selection in Firefox
+              ref={(input) => {
+                if (input) {
+                  input.setAttribute("webkitdirectory", "true");
+                  input.setAttribute("mozdirectory", "true");
+                }
+              }}
               onChange={handleFiles}
             />
           </label>
