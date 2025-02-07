@@ -17,11 +17,11 @@
     "frontend"
   ],
   "homepage": "https://shashank9694.github.io/decentralizedDb",
-
   "devDependencies": {
     "concurrently": "^8.2.2"
   },
   "dependencies": {
+    "gh-pages": "^6.3.0",
     "react-icons": "^5.4.0",
     "react-router-dom": "^6.29.0"
   }

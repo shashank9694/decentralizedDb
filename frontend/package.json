@@ -1,4 +1,6 @@
 {
+  "homepage": "https://shashank9694.github.io/decentralizedDb",
+
   "name": "frontend",
   "private": true,
   "version": "0.0.0",
@@ -8,7 +10,8 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "deploy": "vite build && gh-pages -d dist" 
   },
   "dependencies": {
     "framer-motion": "^12.3.1",
@@ -16,7 +19,6 @@
     "react-dom": "^18.2.0",
     "react-toastify": "^11.0.3"
   },
-  "homepage": "https://shashank9694.github.io/decentralizedDb",
 
   "devDependencies": {
     "@testing-library/jest-dom": "^6.4.2",
