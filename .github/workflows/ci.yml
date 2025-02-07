@@ -9,19 +9,28 @@ jobs:
     services:
       mongodb:
         image: mongo:latest
-        ports:
-          - 27017:27017
         env:
           MONGO_INITDB_ROOT_USERNAME: root
           MONGO_INITDB_ROOT_PASSWORD: example
+        ports:
+          - 27017:27017
         options: >-
-          --name=mongodb
-          --entrypoint /bin/bash mongo -c
-          "mongod --bind_ip_all --auth & sleep 5 && mongo --eval 'db.runCommand({ ping: 1 })'"
+          --health-cmd "echo 'db.runCommand({ ping: 1 })' | mongosh --quiet"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Wait for MongoDB to be ready
+        run: |
+          for i in {1..20}; do
+            nc -z localhost 27017 && echo "MongoDB is up!" && exit 0
+            echo "Waiting for MongoDB..." && sleep 3
+          done
+          echo "MongoDB did not start in time" && exit 1
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
