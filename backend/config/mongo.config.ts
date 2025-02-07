@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const MONGO_URI = "mongodb+srv://shashanksingh9694:<db_password>@cluster0.l7jmt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const MONGO_URI = "mongodb+srv://shashanksingh9694:Sha789@#$@cluster0.l7jmt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 const connectDB = async (retries = 5, delay = 5000) => {
   try {
