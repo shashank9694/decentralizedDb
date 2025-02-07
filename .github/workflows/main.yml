@@ -68,5 +68,5 @@ jobs:
         if: success()
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: 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
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./frontend/dist
