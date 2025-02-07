@@ -16,6 +16,8 @@
     "backend",
     "frontend"
   ],
+  "homepage": "https://github.com/shashank9694/decentralizedDb",
+
   "devDependencies": {
     "concurrently": "^8.2.2"
   },
