@@ -1,0 +1,50 @@
+name: Deploy DecentralizedDB
+
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      mongodb:
+        image: mongo:latest
+        ports:
+          - 27017:27017
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: |
+          npm install -g concurrently
+          npm install -w frontend
+          npm install -w backend
+
+      - name: Wait for MongoDB to initialize
+        run: sleep 30
+
+      - name: Start Backend and Frontend
+        run: |
+          npm run backend & npm run frontend & sleep 30
+        env:
+          MONGO_URI: mongodb://localhost:27017/decentralizedDb
+
+      - name: Verify Services
+        run: |
+          curl -f http://localhost:4000 || exit 1
+          curl -f http://localhost:5173 || exit 1
+
+      - name: Success Message
+        run: echo "✅ Backend and Frontend started successfully!"
