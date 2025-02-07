@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/decentralizedDb";
+const MONGO_URI = "mongodb+srv://shashanksingh9694:<db_password>@cluster0.l7jmt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 const connectDB = async (retries = 5, delay = 5000) => {
   try {
