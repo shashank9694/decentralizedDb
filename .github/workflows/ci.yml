@@ -42,6 +42,8 @@ jobs:
 
       - name: Install concurrently
         run: npm install -g concurrently
+      - name: Install frontend dependencies
+        run: cd frontend && npm install react-router-dom react-icons axios  
 
       - name: Start the application
         run: npm start
