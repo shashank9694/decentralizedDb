@@ -8,6 +8,6 @@ export default defineConfig({
     host: "0.0.0.0",
     port: 5173,
   },
-  base: "/", // ✅ IMPORTANT: Update for GitHub Pages
+  base: "/decentralizedDb", // ✅ IMPORTANT: Update for GitHub Pages
 
 })

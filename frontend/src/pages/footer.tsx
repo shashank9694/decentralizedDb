@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid grid-cols-12 gap-12 items-center">
           {/* Left Section: Logo & Branding (4/12) */}
           <div className="col-span-12 md:col-span-4 flex md:justify-center space-x-4">
-            <img src="/logo.gif" alt="Decentralized DB Logo" className="h-20 w-80 rounded-lg" />
+            <img src="/decentralizedDb/logo.gif" alt="Decentralized DB Logo" className="h-20 w-80 rounded-lg" />
             <div>
               <h2 className="text-2xl font-bold text-gray-900">Decentralized DB</h2>
               <p className="text-gray-800 text-sm">Secure | Scalable | Transparent</p>

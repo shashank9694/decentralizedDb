@@ -25,22 +25,22 @@ function App() {
   // ✅ Animated Title and Favicon
   useEffect(() => {
     const frames = [
-      { title: "🌍 D", favicon: "/vite1.gif" },
-      { title: "🌍 De", favicon: "/vite1.gif" },
-      { title: "🌍 Dec", favicon: "/vite1.gif" },
-      { title: "🌍 Dece", favicon: "/vite1.gif" },
-      { title: "🌍 Decen", favicon: "/vite1.gif" },
-      { title: "🌍 Decent", favicon: "/vite1.gif" },
-      { title: "🌍 Decentr", favicon: "/vite1.gif" },
-      { title: "🌍 Decentra", favicon: "/vite1.gif" },
-      { title: "🌍 Decentral", favicon: "/vite1.gif" },
-      { title: "🌍 Decentrali", favicon: "/vite1.gif" },
-      { title: "🌍 Decentraliz", favicon: "/vite1.gif" },
-      { title: "🌍 Decentralize", favicon: "/vite1.gif" },
-      { title: "🌍 Decentralized", favicon: "/vite1.gif" },
-      { title: "🌍 Decentralized D", favicon: "/vite1.gif" },
-      { title: "🌍 Decentralized DB", favicon: "/vite1.gif" },
-      { title: "🌍 Decentralized DB", favicon: "/vite1.gif" },
+      { title: "🌍 D", favicon: "/decentralizedDb/vite1.gif" },
+      { title: "🌍 De", favicon: "/decentralizedDb/vite1.gif" },
+      { title: "🌍 Dec", favicon: "/decentralizedDb/vite1.gif" },
+      { title: "🌍 Dece", favicon: "/decentralizedDb/vite1.gif" },
+      { title: "🌍 Decen", favicon: "/decentralizedDb/vite1.gif" },
+      { title: "🌍 Decent", favicon: "/decentralizedDb/vite1.gif" },
+      { title: "🌍 Decentr", favicon: "/decentralizedDb/vite1.gif" },
+      { title: "🌍 Decentra", favicon: "/decentralizedDb/vite1.gif" },
+      { title: "🌍 Decentral", favicon: "/decentralizedDb/vite1.gif" },
+      { title: "🌍 Decentrali", favicon: "/decentralizedDb/vite1.gif" },
+      { title: "🌍 Decentraliz", favicon: "/decentralizedDb/vite1.gif" },
+      { title: "🌍 Decentralize", favicon: "/decentralizedDb/vite1.gif" },
+      { title: "🌍 Decentralized", favicon: "/decentralizedDb/vite1.gif" },
+      { title: "🌍 Decentralized D", favicon: "/decentralizedDb/vite1.gif" },
+      { title: "🌍 Decentralized DB", favicon: "/decentralizedDb/vite1.gif" },
+      { title: "🌍 Decentralized DB", favicon: "/decentralizedDb/vite1.gif" },
      
     ];
 
