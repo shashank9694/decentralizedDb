@@ -11,7 +11,7 @@ export default function Body() {
               {/* Step 1 */}
               <div className="flex flex-col items-center p-6 bg-gray-200 shadow-xl shadow-gray-300 rounded-xl">
                 <div className="mb-4">
-                  <img src="/upload-icon.gif" alt="Upload Icon" className="h-17 w-17" />
+                  <img src="/decentralizedDb/upload-icon.gif" alt="Upload Icon" className="h-17 w-17" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900">Step 1: Upload Document</h3>
                 <p className="mt-2 text-gray-600 text-center">
@@ -21,7 +21,7 @@ export default function Body() {
               {/* Step 2 */}
               <div className="flex flex-col items-center p-6 bg-gray-200 shadow-xl shadow-gray-300 rounded-xl">
                 <div className="mb-4">
-                  <img src="/ipfs-icon.gif" alt="IPFS Icon" className="h-17 w-17" />
+                  <img src="/decentralizedDb/ipfs-icon.gif" alt="IPFS Icon" className="h-17 w-17" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900">Step 2: Store on IPFS</h3>
                 <p className="mt-2 text-gray-600 text-center">
@@ -31,7 +31,7 @@ export default function Body() {
               {/* Step 3 */}
               <div className="flex flex-col items-center p-6 bg-gray-200 shadow-xl shadow-gray-300 rounded-xl">
                 <div className="mb-4">
-                  <img src="/hyperledger-icon.gif" alt="Hyperledger Icon" className="h-17 w-17" />
+                  <img src="/decentralizedDb/hyperledger-icon.gif" alt="Hyperledger Icon" className="h-17 w-17" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900">Step 3: Store Hash on Hyperledger</h3>
                 <p className="mt-2 text-gray-600 text-center">
@@ -45,7 +45,7 @@ export default function Body() {
               {/* Step 4 */}
               <div className="flex flex-col items-center p-6 bg-gray-200 shadow-xl shadow-gray-300 rounded-xl w-full md:w-1/3">
                 <div className="mb-4">
-                  <img src="/smart-contract-icon.gif" alt="Smart Contract Icon" className="h-17 w-17" />
+                  <img src="/decentralizedDb/smart-contract-icon.gif" alt="Smart Contract Icon" className="h-17 w-17" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900">Step 4: Verify with Smart Contract</h3>
                 <p className="mt-2 text-gray-600 text-center">
@@ -55,7 +55,7 @@ export default function Body() {
               {/* Step 5 */}
               <div className="flex flex-col items-center p-6 bg-gray-200 shadow-xl shadow-gray-300 rounded-xl w-full md:w-1/3">
                 <div className="mb-4">
-                  <img src="/access-icon.gif" alt="Access Icon" className="h-17 w-17" />
+                  <img src="/decentralizedDb/access-icon.gif" alt="Access Icon" className="h-17 w-17" />
                 </div>
                 <h3 className="text-2xl font-semibold text-gray-900">Step 5: Access Verified Document</h3>
                 <p className="mt-2 text-gray-600 text-center">

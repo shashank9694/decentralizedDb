@@ -24,7 +24,7 @@ export default function Homepage() {
             {/* Right Image (4/12) with Auto Animation */}
             <div className="col-span-12 md:col-span-4">
               <img
-                src="/homepage.png"
+                src="/decentralizedDb/homepage.png"
                 alt="Decentralized DB"
                 className="w-full rounded-lg object-contain animate-move-image"
               />

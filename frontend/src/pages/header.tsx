@@ -27,7 +27,7 @@ function Header() {
         <nav className="bg-gray-300 flex items-center justify-between shadow-lg rounded-xl px-6 py-3">
           <div className="flex items-center" style={{ width: "300px", height: "78px" }}>
             <img
-              src="/logo.gif"
+              src="/decentralizedDb/logo.gif"
               alt="Logo"
               onClick={() => (window.location.href = "/")}
               className="cursor-pointer w-full h-full"
