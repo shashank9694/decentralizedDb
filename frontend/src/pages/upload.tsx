@@ -1,5 +1,21 @@
 import { useState } from "react";
 import { FaCloudUploadAlt } from "react-icons/fa";
+import { create } from "ipfs-http-client";
+
+
+import ToastMessage from "./toastmessage";
+import { ethers } from "ethers";
+import config from '../../config.json'
+
+
+
+let provider = new ethers.JsonRpcProvider('http://127.0.0.1:8548/')
+const contract = new ethers.Contract(config.contractAddress, config.abi, provider);
+
+const ipfs = create({
+  url: "http://127.0.0.1:5001",
+  
+});
 
 export default function UploadPage() {
   const [files, setFiles] = useState<File[]>([]);
@@ -20,17 +36,78 @@ export default function UploadPage() {
     }
   };
 
+  const uploadToContract = async (folderCid: any) => {
+    try {
+      // Load Admin Wallet
+      const adminWallet = new ethers.Wallet(config.adminPrivateKey, provider);
+  
+      // Get wallet address from localStorage
+      const userData = JSON.parse(localStorage.getItem("user") || "{}");
+      const wallet = userData.walletAddress || "";
+  
+      if (!wallet) {
+      ToastMessage(`Wallet address not found!`,"error",  "")
+
+        return;
+      }
+  
+      // Create contract instance with Admin Wallet
+      const contract = new ethers.Contract(config.contractAddress, config.abi, adminWallet);
+  
+      // Send the transaction
+      
+      const tx = await contract.uploadDocument(wallet, folderCid); // Assuming `true` for `verified`
+  
+      // Wait for confirmation
+      await tx.wait();
+      setFiles([])
+      // progress = 100
+      
+      setUploadProgress(0);
+      ToastMessage("The Document uploaded Successfully","successs", tx.hash|| "")
+      // clearInterval(interval);
+      console.log("Transaction Confirmed:", tx.hash);
+    } catch (error) {
+      setFiles([])
+      // progress = 100
+      
+      setUploadProgress(0);
+      ToastMessage(`${error?.reason}`,"error",  "")
+      console.error("Transaction Failed:", error?.reason);
+    }
+  };
+
   // Simulate Upload Progress
-  const handleUpload = () => {
+  const handleUpload = async() => {
     if (files.length === 0) return;
     
     setUploadProgress(0);
     let progress = 0;
-    const interval = setInterval(() => {
-      progress += 10;
-      setUploadProgress(progress);
-      if (progress >= 100) clearInterval(interval);
-    }, 300);
+    // const interval = setInterval(async() => {
+      
+      
+      
+      
+      // Upload entire folder
+      let folderCid ;
+      for await (const file of ipfs.addAll(files, { wrapWithDirectory: true })) {
+        // progress += 100/files.length;
+        folderCid   = file.cid; // The last CID corresponds to the whole folder
+        if(file.path != "")  {
+          progress += 100/files.length;
+
+          setUploadProgress(progress);
+          
+        } 
+      }
+      
+      // window.location.reload()
+      if (progress == 100) {
+        await uploadToContract(folderCid?.toString())
+       
+      }
+    
+    // }, 300);
   };
 
   return (

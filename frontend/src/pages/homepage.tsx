@@ -7,7 +7,7 @@ export default function Homepage() {
         <div className="max-w-10xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-12 gap-8 items-center">
             {/* Left Content (8/12) */}
-            <div className="pl-6 sm:pl-8 lg:pl-11 col-span-12 md:col-span-8">
+            <div className="pl-6 sm:pl-8 lg:pl-11 col-span-6 md:col-span-8">
               <h1 className="text-5xl font-extrabold text-gray-900 sm:text-6xl md:text-7xl">
                 <span className="block">Redefining Data Storage</span>
                 <span className="block text-indigo-600">with Decentralization</span>
@@ -22,7 +22,7 @@ export default function Homepage() {
             </div>
 
             {/* Right Image (4/12) with Auto Animation */}
-            <div className="col-span-12 md:col-span-4">
+            <div className="pl-6 sm:pl-8 lg:pl-11 col-span-6 md:col-span-4">
               <img
                 src="/decentralizedDb/homepage.png"
                 alt="Decentralized DB"

@@ -5,6 +5,10 @@ export interface IUser extends Document {
     name: string;
     email: string;
     password: string;
+    userType: string;
+    walletAddress: string;
+    privateKey: string;
+    documentHash: String[];
     matchPassword(enteredPassword: string): Promise<boolean>;
 }
 
@@ -13,6 +17,10 @@ const UserSchema = new Schema<IUser>(
         name: { type: String, required: true },
         email: { type: String, required: true, unique: true },
         password: { type: String, required: true },
+        userType: { type: String, default: "User" },
+        walletAddress: { type: String, required: true },
+        privateKey: { type: String, required: true },
+
     },
     { timestamps: true }
 );

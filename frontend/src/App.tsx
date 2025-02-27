@@ -7,6 +7,8 @@ import Header from './pages/header';
 import UploadPage from './pages/upload';
 import Footer from './pages/footer';
 import { ToastContainer} from 'react-toastify';
+import UserDashboard from './pages/dashboard';
+import UserProfile from './pages/profile';
 
 
 function App() {
@@ -67,6 +69,8 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/home" element={<Homepage />} />
         <Route path="/upload" element={<UploadPage />} />
+        <Route path="/dashboard" element={<UserDashboard />} />
+        <Route path="/profile" element={<UserProfile />} />
       </Routes>
       <Footer />
 
