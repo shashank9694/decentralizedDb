@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { IoClose, IoMenu } from "react-icons/io5";
 import { FcGoogle } from "react-icons/fc";
 import { FaFacebook } from "react-icons/fa";
@@ -7,7 +7,7 @@ import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 import ToastMessage from "./toastmessage";
 import { motion, AnimatePresence } from "framer-motion";
-import { GoogleLogin, useGoogleLogin } from '@react-oauth/google';
+import {  useGoogleLogin } from '@react-oauth/google';
 
 
 
@@ -308,7 +308,7 @@ function SignInForm() {
 }
 
 function useAuth() {
-  const [user, setUser] = useState(null);
+  const [user , setUser] = useState<any>();
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");

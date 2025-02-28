@@ -35,7 +35,7 @@ export default function UserDashboard() {
             index,
           }));
 
-          const allApproved = userFiles.every((file) => file.approved);
+          const allApproved = userFiles.every((file :any) => file.approved);
 
           userData.push({
             id: response.data.user[i]._id,
@@ -73,10 +73,10 @@ export default function UserDashboard() {
           user.walletAddress === walletAddress
             ? {
                 ...user,
-                fileLinks: user.fileLinks.map((file, i) =>
+                fileLinks: user.fileLinks.map((file : any, i :any) =>
                   i === index ? { ...file, approved: true } : file
                 ),
-                status: user.fileLinks.every((file, i) => i === index || file.approved)
+                status: user.fileLinks.every((file :any, i :any) => i === index || file.approved)
                   ? "Approved"
                   : "Pending",
               }
@@ -84,8 +84,8 @@ export default function UserDashboard() {
         )
       );
       setShowModal(false);
-    } catch (error) {
-      ToastMessage(`${error?.reason}`, "error", "");
+    } catch (error :any) {
+      ToastMessage(`${error?.reason }`, "error", "");
       console.error("Transaction Failed:", error?.reason);
     }
   };

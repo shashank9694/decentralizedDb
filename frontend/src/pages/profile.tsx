@@ -29,7 +29,7 @@ export default function UserProfile() {
     }
   }, [user?.walletAddress]); // Runs only when walletAddress is updated
 
-  const fetchUserDocuments = async (wallet : any) => {
+  const fetchUserDocuments = async (wallet :any) => {
     try {
       setLoading(true);
       const contract = new ethers.Contract(config.contractAddress, config.abi, provider);

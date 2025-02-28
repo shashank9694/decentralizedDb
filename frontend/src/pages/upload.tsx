@@ -10,7 +10,7 @@ import config from '../../config.json'
 
 
 let provider = new ethers.JsonRpcProvider('http://127.0.0.1:8548/')
-const contract = new ethers.Contract(config.contractAddress, config.abi, provider);
+// const contract = new ethers.Contract(config.contractAddress, config.abi, provider);
 
 const ipfs = create({
   url: "http://127.0.0.1:5001",
@@ -67,7 +67,7 @@ export default function UploadPage() {
       ToastMessage("The Document uploaded Successfully","successs", tx.hash|| "")
       // clearInterval(interval);
       console.log("Transaction Confirmed:", tx.hash);
-    } catch (error) {
+    } catch (error :any) {
       setFiles([])
       // progress = 100
       
