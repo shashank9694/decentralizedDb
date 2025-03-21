@@ -9,11 +9,11 @@ import config from '../../config.json'
 
 
 
-let provider = new ethers.JsonRpcProvider('http://127.0.0.1:8548/')
+let provider = new ethers.providers.JsonRpcProvider(config.URL_RPC)
 // const contract = new ethers.Contract(config.contractAddress, config.abi, provider);
 
 const ipfs = create({
-  url: "http://127.0.0.1:5001",
+  url: config.URL_IPFS,
   
 });
 
@@ -55,7 +55,7 @@ export default function UploadPage() {
       const contract = new ethers.Contract(config.contractAddress, config.abi, adminWallet);
   
       // Send the transaction
-      
+      console.log('wallet, folderCid', wallet, folderCid)
       const tx = await contract.uploadDocument(wallet, folderCid); // Assuming `true` for `verified`
   
       // Wait for confirmation

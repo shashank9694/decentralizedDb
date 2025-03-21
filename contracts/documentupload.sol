@@ -75,7 +75,7 @@ contract DocumentVerification {
         return verifiedDocs;
     }
 
-    function viewAllDocuments(address user) external view onlyAdmin returns (Document[] memory) {
+    function viewAllDocuments(address user) external view  returns (Document[] memory) {
         return userDocuments[user];
     }
 

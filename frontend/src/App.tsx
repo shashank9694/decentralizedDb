@@ -9,6 +9,7 @@ import Footer from './pages/footer';
 import { ToastContainer} from 'react-toastify';
 import UserDashboard from './pages/dashboard';
 import UserProfile from './pages/profile';
+import config from "../config.json"
 
 
 function App() {
@@ -17,7 +18,7 @@ function App() {
   useEffect(() => {
     console.log("Fetching Books...",books);
     const getBooks = async () => {
-      const response = await fetch('http://localhost:4000/books');
+      const response = await fetch(`${config.URL_BACKEND}books`);
       const data = await response.json();
       setBooks(data);
     };

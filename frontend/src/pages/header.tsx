@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import ToastMessage from "./toastmessage";
 import { motion, AnimatePresence } from "framer-motion";
 import {  useGoogleLogin } from '@react-oauth/google';
+import config from "../../config.json"
 
 
 
@@ -71,7 +72,13 @@ function Header() {
             
             <li>
               {user ? (
-                <button onClick={logout} className="text-gray-700 hover:text-gray-800 text-lg w-32 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:shadow-lg transition">Logout</button>
+                 <Link 
+                 to="/" 
+                 onClick={logout}
+                 className="text-gray-700 hover:text-gray-800 text-lg w-32 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:shadow-lg transition"
+                 >
+                 Logout
+               </Link>
               ) : (
                 <button onClick={() => setIsPopupOpen(true)} className="text-gray-700 hover:text-gray-800 text-lg w-32 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:shadow-lg transition">Sign Up</button>
               )}
@@ -85,6 +92,7 @@ function Header() {
           >
             {menuOpen ? <IoClose /> : <IoMenu />}
           </button>
+
 
           {/* Mobile Menu */}
           <motion.ul
@@ -114,7 +122,7 @@ function Header() {
             
             <li>
               {user ? (
-                <button onClick={logout} className=" mobile-nav-link text-gray-700 hover:text-gray-800 text-lg w-32 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:shadow-lg transition">Logout</button>
+                <button  onClick={logout} className=" mobile-nav-link text-gray-700 hover:text-gray-800 text-lg w-32 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:shadow-lg transition">Logout</button>
               ) : (
                 <button onClick={() => setIsPopupOpen(true)} className=" mobile-nav-link text-gray-700 hover:text-gray-800 text-lg w-32 h-12 flex items-center justify-center rounded-full bg-white shadow-md hover:shadow-lg transition">Sign Up</button>
               )}
@@ -184,7 +192,7 @@ function SignUpForm() {
     e.preventDefault();
     try {
       let userType = "User"
-      const response = await axios.post("http://localhost:4000/api/auth/register", {
+      const response = await axios.post(`${config.URL_BACKEND}api/auth/register`, {
         name,
         email,
         password,
@@ -247,7 +255,7 @@ function SignInForm() {
   const handleSignIn = async (e: any) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:4000/api/auth/login", {
+      const response = await axios.post(`${config.URL_BACKEND}api/auth/login`, {
      
         email,
         password,

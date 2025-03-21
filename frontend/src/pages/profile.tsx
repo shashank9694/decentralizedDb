@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import config from "../../config.json";
 
-const provider = new ethers.JsonRpcProvider("http://127.0.0.1:8548/");
+const provider = new ethers.providers.JsonRpcProvider(config.URL_RPC);
 
 export default function UserProfile() {
   const [files, setFiles] = useState<string[]>([]);
@@ -48,7 +48,7 @@ export default function UserProfile() {
       {user && (
         <div className="relative bg-white p-8 rounded-3xl shadow-2xl flex flex-col items-center w-full max-w-lg mb-8 transform transition hover:scale-105">
           <div className="w-32 h-32 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center shadow-lg">
-            <span className="text-4xl text-white font-bold">{user.name.charAt(0)}</span>
+            <span className="text-4xl text-white font-bold">{user.name.charAt(0)}{user.name.charAt(1)}{user.name.charAt(2)}</span>
           </div>
           <h2 className="mt-4 text-2xl font-bold text-gray-800">{user.name}</h2>
           <p className="text-gray-600">{user.email}</p>

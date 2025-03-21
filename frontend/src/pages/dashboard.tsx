@@ -4,8 +4,11 @@ import axios from "axios";
 import { ethers } from "ethers";
 import config from "../../config.json";
 import ToastMessage from "./toastmessage";
+// const provider = new ethers.JsonRpcProvider(config.rpcUrl);
 
-const provider = new ethers.JsonRpcProvider("http://127.0.0.1:8548/");
+const provider = new ethers.providers.JsonRpcProvider(config.URL_RPC);
+const adminWallet = new ethers.Wallet(config.adminPrivateKey, provider);
+const contract = new ethers.Contract(config.contractAddress, config.abi, adminWallet);
 
 export default function UserDashboard() {
   const [users, setUsers] = useState<any[]>([]);
@@ -20,15 +23,19 @@ export default function UserDashboard() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const contract = new ethers.Contract(config.contractAddress, config.abi, provider);
-        const response = await axios.post("http://localhost:4000/api/auth/userList");
+        // const contract = new ethers.Contract(config.contractAddress, config.abi, provider);
+        const response = await axios.post(`${config.URL_BACKEND}api/auth/userList`);
 
         const userData = [];
+        console.log('response', response)
 
         for (let i = 0; i < response.data.user.length; i++) {
           const walletAddress = response.data.user[i].walletAddress;
+          console.log('walletAddress', walletAddress)
+          // let signer =new ethers.Wallet(config.adminPrivateKey)
           const documents = await contract.viewAllDocuments(walletAddress);
-
+          console.log('Documents:', documents);
+                    console.log('documents', documents)
           let userFiles = documents.map((doc: any, index: number) => ({
             url: `https://ipfs.io/ipfs/${doc[0]}`,
             approved: doc[1],
@@ -184,6 +191,11 @@ export default function UserDashboard() {
           </button>
         </div>
       </div>
+
+
+
+
+
 
       {/* File Preview Modal */}
        {/* File Preview Modal */}
